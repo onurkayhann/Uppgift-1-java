@@ -57,21 +57,6 @@ public class NumberGame {
 
             }
 
-            /*
-             * 
-             * System.out.print("Vill du spela igen? (ja/nej): ");
-             * String restartGame = scanner.next().toLowerCase();
-             * 
-             * if (restartGame.equalsIgnoreCase("nej")) {
-             * playAgain = false;
-             * }
-             * 
-             * else {
-             * playAgain = true;
-             * amountOfTries = 0;
-             * }
-             */
-
         }
 
     }
