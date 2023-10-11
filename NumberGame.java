@@ -3,10 +3,14 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class NumberGame {
+
     Scanner scanner = new Scanner(System.in);
     Random random = new Random();
-    int amountOfTries;
+    
+    protected int amountOfTries;
     protected boolean playAgain;
+    protected int userGuess;
+    protected int randomNumber;
 
     public NumberGame() {
         startGame();
@@ -15,13 +19,9 @@ public class NumberGame {
     public void startGame() {
 
         playAgain = true;
+        randomNumber = random.nextInt(100) + 1;
 
         while (playAgain) {
-
-            int userGuess = 0;
-            int randomNumber;
-
-            randomNumber = random.nextInt(100) + 1;
 
             System.out.println(randomNumber);
             System.out.print("Välkommen till spelet. Gissa ett tal mellan 1-100: ");
