@@ -6,7 +6,7 @@ public class NumberGame {
 
     Scanner scanner = new Scanner(System.in);
     Random random = new Random();
-    
+
     protected int amountOfTries;
     protected boolean playAgain;
     protected int userGuess;
@@ -36,17 +36,14 @@ public class NumberGame {
 
                     if (userGuess < randomNumber) {
                         System.out.print("Fel, talet är större. Gissa igen: ");
-
                     }
 
                     else if (userGuess > randomNumber) {
                         System.out.print("Fel, talet är mindre. Gissa igen: ");
-
                     }
 
                     else if (userGuess == randomNumber) {
                         System.out.println("Grattis! Du gissade rätt på " + amountOfTries + " försök");
-
                         playAgainOrNot();
                     }
 
