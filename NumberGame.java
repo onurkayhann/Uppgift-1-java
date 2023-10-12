@@ -7,6 +7,7 @@ public class NumberGame {
     Scanner scanner = new Scanner(System.in);
     Random random = new Random();
 
+    // instansvariabler
     protected int amountOfTries;
     protected boolean playAgain;
     protected int userGuess;
@@ -19,8 +20,9 @@ public class NumberGame {
     public void startGame() {
 
         playAgain = true;
-        randomNumber = random.nextInt(100) + 1;
+        randomNumber = random.nextInt(100) + 1; // här slumpas korrekta numret från datorn
 
+        // Så länge playAgain är true så kommer spelet köras
         while (playAgain) {
 
             System.out.println(randomNumber);
@@ -28,8 +30,10 @@ public class NumberGame {
 
             while (userGuess != randomNumber) {
 
+                // för att säkerställa att användaren matar in int istället för sträng, så
+                // använde jag mig av try/catch
                 try {
-                    amountOfTries++;
+                    amountOfTries++; // här startar användarens räknare från 1.
                     userGuess = scanner.nextInt();
 
                     System.out.println("Gissning " + amountOfTries + ": " + userGuess);
@@ -44,9 +48,10 @@ public class NumberGame {
 
                     else if (userGuess == randomNumber) {
                         System.out.println("Grattis! Du gissade rätt på " + amountOfTries + " försök");
-                        playAgainOrNot();
+                        playAgainOrNot(); // anropar metoden för att fråga användaren om den vill köra igen eller inte
                     }
 
+                    // kontrollen sker här huruvida det är en sträng eller int som matas in.
                 } catch (InputMismatchException e) {
                     System.out.print("Du kan bara skriva ett tal med siffror. Försök igen: ");
                     scanner.next();
@@ -63,7 +68,8 @@ public class NumberGame {
         String restartGame = scanner.next().toLowerCase();
 
         if (restartGame.equalsIgnoreCase("ja")) {
-            amountOfTries = 0;
+            amountOfTries = 0; // Här blev jag tvungen att sätta till noll så att gissningen startar från 1
+                               // igen
             startGame();
         }
 
