@@ -28,7 +28,7 @@ public class NumberGame {
 
             // här printas korrekt nummer ut så att läraren kan felsöka spelet
             System.out.println("This is the secret number for the teacher: " + randomNumber);
-            
+
             System.out.print("Välkommen till spelet. Gissa ett tal mellan 1-100: ");
 
             while (userGuess != randomNumber) {
