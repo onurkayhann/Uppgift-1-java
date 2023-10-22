@@ -4,14 +4,15 @@ import java.util.Scanner;
 
 public class NumberGame {
 
-    Scanner scanner = new Scanner(System.in);
-    Random random = new Random();
-
     // instansvariabler
     protected int amountOfTries;
-    protected boolean playAgain;
     protected int userGuess;
     protected int randomNumber;
+
+    protected boolean playAgain;
+
+    protected Scanner scanner = new Scanner(System.in);
+    protected Random random = new Random();
 
     public NumberGame() {
         startGame();
@@ -25,7 +26,9 @@ public class NumberGame {
         // Så länge playAgain är true så kommer spelet köras
         while (playAgain) {
 
-            System.out.println(randomNumber);
+            // här printas korrekt nummer ut så att läraren kan felsöka spelet
+            System.out.println("This is the secret number for the teacher: " + randomNumber);
+            
             System.out.print("Välkommen till spelet. Gissa ett tal mellan 1-100: ");
 
             while (userGuess != randomNumber) {
@@ -53,6 +56,7 @@ public class NumberGame {
 
                     // kontrollen sker här huruvida det är en sträng eller int som matas in.
                 } catch (InputMismatchException e) {
+                    amountOfTries--; // felaktig inmatning räknas ej som gissning, därav amountOfTries--
                     System.out.print("Du kan bara skriva ett tal med siffror. Försök igen: ");
                     scanner.next();
                 }
@@ -68,13 +72,13 @@ public class NumberGame {
         String restartGame = scanner.next().toLowerCase();
 
         if (restartGame.equalsIgnoreCase("ja")) {
-            amountOfTries = 0; // Här blev jag tvungen att sätta till noll så att gissningen startar från 1
+            amountOfTries = 0; // Här blev jag tvungen att nollställa så att gissningen startar från 1
                                // igen
             startGame();
         }
 
         else if (restartGame.equalsIgnoreCase("nej")) {
-            System.out.println("Tack för att du spelade!");
+            System.out.println("Tack för att du spelade. Välkommen åter!");
             playAgain = false;
 
         }
